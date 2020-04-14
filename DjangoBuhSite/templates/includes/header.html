@@ -1,0 +1,38 @@
+{% load static %}
+{% load buh_tag %}
+{% get_site_wrapper_data as SiteWrapper %}
+
+<header>
+    <div class="bg-dark collapse" id="navbarHeader" style="">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    {% if SiteWrapper.show_about %}
+                    <h4 class="text-white">About</h4>
+                    <p class="text-muted">{{SiteWrapper.about}}</p>
+                    {% endif %}
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                    <ul class="list-unstyled">
+                        <li><a href="{% url "buh:index" %}" class="text-white"><h4>Главная</h4></a></li>
+                        <li><a href="{% url "buh:services" %}" class="text-white"><h4>Услуги</h4></a></li>
+                        <li><a href="{% url "buh:guarantee" %}" class="text-white"><h4>Гарантии</h4></a></li>
+                        <li><a href="{% url "buh:contacts" %}" class="text-white"><h4>Контакты</h4></a></li>
+                        <li><a href="{% url "buh:get_service" %}" class="text-white"><h4>Заказать услугу</h4></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+            <a href="{% url "buh:index" %}" class="navbar-brand d-flex align-items-center">
+                <img src="{% static "unnamed.png" %}" width="50" height="50" fill="none" />
+                <strong>{{SiteWrapper.name}}</strong>
+            </a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</header>

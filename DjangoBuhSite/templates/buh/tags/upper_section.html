@@ -1,0 +1,13 @@
+{% load buh_tag %}
+{% index_data as Index %}
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1>{{Index.title}}</h1>
+        <p class="lead text-muted">{{Index.description}}</p>
+        <p>
+            <a href="{% url "buh:services" %}" class="btn btn-primary my-2">Услуги</a>
+            <a href="{% url "buh:get_service" %}" class="btn btn-secondary my-2">Заказать услугу</a>
+        </p>
+    </div>
+</section>

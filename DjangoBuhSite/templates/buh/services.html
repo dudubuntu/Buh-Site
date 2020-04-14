@@ -1,0 +1,33 @@
+{% extends "wrapper.html" %}
+
+{% block title %}Услуги|Бухгaлтерские услуги{% endblock title %}
+
+{% block content %}
+
+
+<div class="container">
+
+    <div class="row">
+
+        {% if services %}
+
+        {% for service in services %}
+
+        <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+                <a href="{% url "buh:service_detail" service.url %}" class="text-white"><img src="{{service.image_set.get.img.url}}" width="100%" height="225" ></a>
+                <div class="card-body">
+                    <a href="{% url "buh:service_detail" service.url %}" class="text-white">{{service.title}}</a>
+                    <p class="card-text">{{service.text|safe|linebreaks}}</p>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock content %}

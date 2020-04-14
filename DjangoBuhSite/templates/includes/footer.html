@@ -1,0 +1,12 @@
+{% load buh_tag %}
+{% get_site_wrapper_data as SiteWrapper %}
+
+<footer class="text-muted">
+    <div class="container">
+        <p class="float-right">
+            <a href="#">Наверх</a>
+        </p>
+        <p>{{SiteWrapper.footer_text}}</p>
+        <p><a href="{% url "buh:contacts" %}">{{SiteWrapper.footer_link}}</a></p>
+    </div>
+</footer>

@@ -1,0 +1,17 @@
+{% extends "wrapper.html" %}
+{% load buh_tag %}
+{% index_data as Index %}
+
+{% block title %}Главная|Бухгaлтерские услуги{% endblock title %}
+
+
+{% block upper %}
+{% upper_section_tag %}
+{% endblock upper %}
+
+
+{% block content %}
+<div class="container">
+    <p>{{Index.text}}</p>
+</div>
+{% endblock content %}

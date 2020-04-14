@@ -1,0 +1,59 @@
+{% extends "wrapper.html" %}
+
+{% block title %}Заказать услугу|Бухгaлтерские услуги{% endblock title %}
+
+{% block content %}
+<br />
+
+<form action="{% url "buh:add_service" %}" method="POST" id="service_form">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6 text-right">
+
+                <label for="name">Введите имя*</label><br /><br />
+
+                <label for="phone">Введите номер телефона*</label><br /><br />
+
+                <label for="email">Введите E-mail</label><br /><br />
+
+                <label for="service">Выберите услугу</label><br /><br />
+
+                <label for="description">Описание</label><br /><br />
+
+
+            </div>
+
+            <div class="col-md-6 text-left">
+
+                {% csrf_token %}
+                <input required placeholder="Ваше имя" id="name" name="name" /><br /><br />
+
+                <input required placeholder="Ваш номер" id="phone" name="phone" /><br /><br />
+
+                <input placeholder="Ваш E-mail" id="email" name="email" /><br /><br />
+
+                <select required name="service" size="1" id="service">
+                    {% for service in services %}
+                    <option>{{service.title}}</option>
+                    {% endfor %}
+                </select><br /><br />
+
+                <textarea rows="5" cols="30" id="description" name="description"></textarea><br /><br />
+
+
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="container text-center">
+        <button type="submit">Заказать</button><br />
+        <em>Мы свяжемся с вами в ближайшее время</em>
+    </div>
+</form>
+
+<br />
+{% endblock content %}
